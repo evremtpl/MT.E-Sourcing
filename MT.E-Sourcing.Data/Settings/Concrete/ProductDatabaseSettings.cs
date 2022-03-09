@@ -1,10 +1,8 @@
-﻿using MT.E_Sourcing.Products.Settings.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 
-namespace MT.E_Sourcing.Products.Settings.Concrete
+using MT.E_Sourcing.Data.Settings.Interfaces;
+
+namespace MT.E_Sourcing.Data.Settings.Concrete
 {
     public class ProductDatabaseSettings : IProductDatabaseSettings
     {

@@ -11,4 +11,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MT.E-Sourcing.Data\MT.E-Sourcing.Data.csproj" />
+  </ItemGroup>
+
 </Project>

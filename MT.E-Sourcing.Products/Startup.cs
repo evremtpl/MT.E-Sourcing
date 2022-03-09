@@ -1,18 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
-using MT.E_Sourcing.Products.Settings.Abstract;
-using MT.E_Sourcing.Products.Settings.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+
+using MT.E_Sourcing.Data.Interfaces;
+using MT.E_Sourcing.Data.Concrete;
+using MT.E_Sourcing.Data.Settings.Concrete;
+using MT.E_Sourcing.Data.Settings.Interfaces;
 
 namespace MT.E_Sourcing.Products
 {
@@ -35,10 +32,7 @@ namespace MT.E_Sourcing.Products
             services.Configure<ProductDatabaseSettings>(Configuration.GetSection(nameof(ProductDatabaseSettings)));
             services.AddSingleton<IProductDatabaseSettings, ProductDatabaseSettings>();
             //services.AddSingleton<IProductDatabaseSettings>(sp=>sp.GetRequiredService<IOptions<ProductDatabaseSettings>>().Value);
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MT.E_Sourcing.Products", Version = "v1" });
-            });
+            services.AddTransient<IProductContext, ProductContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
