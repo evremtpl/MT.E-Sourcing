@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order", "Order", "{3830E5A4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Products", "MT.E-Sourcing.Products\MT.E-Sourcing.Products.csproj", "{7A90FDF6-49DD-46CA-AF4B-456608B6D329}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Core", "MT.E-Sourcing.Core\MT.E-Sourcing.Core.csproj", "{C5590AFF-9DCB-4820-B4CF-A9E7BD47186C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Core", "MT.E-Sourcing.Core\MT.E-Sourcing.Core.csproj", "{C5590AFF-9DCB-4820-B4CF-A9E7BD47186C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Data", "MT.E-Sourcing.Data\MT.E-Sourcing.Data.csproj", "{5EBFB7CC-E3CF-4E73-BB67-9E0CE8BBE060}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Data", "MT.E-Sourcing.Data\MT.E-Sourcing.Data.csproj", "{5EBFB7CC-E3CF-4E73-BB67-9E0CE8BBE060}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FB4CE77C-E5F6-4730-9B86-BC2205EC2277}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{5EBFB7CC-E3CF-4E73-BB67-9E0CE8BBE060}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EBFB7CC-E3CF-4E73-BB67-9E0CE8BBE060}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EBFB7CC-E3CF-4E73-BB67-9E0CE8BBE060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB4CE77C-E5F6-4730-9B86-BC2205EC2277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB4CE77C-E5F6-4730-9B86-BC2205EC2277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB4CE77C-E5F6-4730-9B86-BC2205EC2277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB4CE77C-E5F6-4730-9B86-BC2205EC2277}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
