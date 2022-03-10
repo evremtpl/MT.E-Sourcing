@@ -10,11 +10,11 @@ namespace MT.E_Sourcing.Data.Concrete
 {
     public class ProductContextSeed
     {
-        public static void SeedData(IMongoCollection<Product> productCollectiom)
+        public static void SeedData(IMongoCollection<Product> productCollection)
         {
-            bool existProduct = productCollectiom.Find(p => true).Any();
+            bool existProduct = productCollection.Find(p => true).Any();
 
-            if (!existProduct) { productCollectiom.InsertManyAsync(CreateProducts()); }
+            if (!existProduct) { productCollection.InsertManyAsync(CreateProducts()); }
         }
 
         private static IEnumerable<Product> CreateProducts()

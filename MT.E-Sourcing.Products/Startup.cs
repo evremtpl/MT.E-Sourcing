@@ -10,6 +10,7 @@ using MT.E_Sourcing.Data.Interfaces;
 using MT.E_Sourcing.Data.Concrete;
 using MT.E_Sourcing.Data.Settings.Concrete;
 using MT.E_Sourcing.Data.Settings.Interfaces;
+using Microsoft.Extensions.Options;
 
 namespace MT.E_Sourcing.Products
 {
@@ -30,8 +31,8 @@ namespace MT.E_Sourcing.Products
 
 
             services.Configure<ProductDatabaseSettings>(Configuration.GetSection(nameof(ProductDatabaseSettings)));
-            services.AddSingleton<IProductDatabaseSettings, ProductDatabaseSettings>();
-            //services.AddSingleton<IProductDatabaseSettings>(sp=>sp.GetRequiredService<IOptions<ProductDatabaseSettings>>().Value);
+           // services.AddSingleton<IProductDatabaseSettings, ProductDatabaseSettings>();
+            services.AddSingleton<IProductDatabaseSettings>(sp=>sp.GetRequiredService<IOptions<ProductDatabaseSettings>>().Value);
             services.AddTransient<IProductContext, ProductContext>();
             services.AddScoped<IProductRepository, ProductRepository>();
         }
@@ -42,8 +43,8 @@ namespace MT.E_Sourcing.Products
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MT.E_Sourcing.Products v1"));
+                //app.UseSwagger();
+                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MT.E_Sourcing.Products v1"));
             }
 
             app.UseRouting();
