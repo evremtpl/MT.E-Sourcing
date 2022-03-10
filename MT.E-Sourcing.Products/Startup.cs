@@ -33,6 +33,7 @@ namespace MT.E_Sourcing.Products
             services.AddSingleton<IProductDatabaseSettings, ProductDatabaseSettings>();
             //services.AddSingleton<IProductDatabaseSettings>(sp=>sp.GetRequiredService<IOptions<ProductDatabaseSettings>>().Value);
             services.AddTransient<IProductContext, ProductContext>();
+            services.AddScoped<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
