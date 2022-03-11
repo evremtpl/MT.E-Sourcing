@@ -8,6 +8,8 @@ using MT.E_Sourcing.Sourcing.Data.Concrete;
 using MT.E_Sourcing.Sourcing.Data.Interfaces;
 using MT.E_Sourcing.Sourcing.Data.Settings.Concrete;
 using MT.E_Sourcing.Sourcing.Data.Settings.Interface;
+using MT.E_Sourcing.Sourcing.Service.Concrete;
+using MT.E_Sourcing.Sourcing.Service.Interfaces;
 
 namespace MT.E_Sourcing.Sourcing.API
 {
@@ -30,6 +32,10 @@ namespace MT.E_Sourcing.Sourcing.API
             sp.GetRequiredService<IOptions<SourcingDatabaseSettings>>().Value);
 
             services.AddTransient<ISourcingContext, SourcingContext>(); // her istekte yeni bir object olurturmak için bu lifecycle.
+            services.AddTransient<IAuctionRepository, AuctionRepository>();
+            services.AddTransient<IBidRepository, BidRepository>();
+            services.AddTransient<IAuctionService, AuctionService>();
+            services.AddTransient<IBidService, BidService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
