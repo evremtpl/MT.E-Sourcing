@@ -68,7 +68,7 @@ namespace MT.E_Sourcing.Sourcing.API.Controllers
                await _auctionService.Delete(id);
                 return NoContent();
             }
-            return BadRequest($" Auction with id {id}, has not beem in database");
+            return BadRequest($" Auction with id {id}, has not been in database");
         }
     }
 }
