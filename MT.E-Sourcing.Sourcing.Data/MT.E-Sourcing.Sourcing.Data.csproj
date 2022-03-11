@@ -5,4 +5,12 @@
     <RootNamespace>MT.E_Sourcing.Sourcing.Data</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.14.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MT.E-Sourcing.Sourcing.Core\MT.E-Sourcing.Sourcing.Core.csproj" />
+  </ItemGroup>
+
 </Project>
