@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sourcing", "Sourcing", "{93
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Sourcing", "MT.E-Sourcing.Sourcing\MT.E-Sourcing.Sourcing.csproj", "{DD7D2F45-00EE-46D7-A255-4D388CB67C48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Sourcing.Core", "MT.E-Sourcing.Sourcing.Core\MT.E-Sourcing.Sourcing.Core.csproj", "{CD32CA72-86EB-46EA-B6E0-5F11B616DE7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{DD7D2F45-00EE-46D7-A255-4D388CB67C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD7D2F45-00EE-46D7-A255-4D388CB67C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD7D2F45-00EE-46D7-A255-4D388CB67C48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD32CA72-86EB-46EA-B6E0-5F11B616DE7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD32CA72-86EB-46EA-B6E0-5F11B616DE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD32CA72-86EB-46EA-B6E0-5F11B616DE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD32CA72-86EB-46EA-B6E0-5F11B616DE7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{5EBFB7CC-E3CF-4E73-BB67-9E0CE8BBE060} = {C64A7545-1406-45DA-875B-E79E39882AA0}
 		{933BC1EC-9403-412A-99D8-C9F7311318EB} = {7502E82A-D5BC-418B-A280-47ADAE02A872}
 		{DD7D2F45-00EE-46D7-A255-4D388CB67C48} = {933BC1EC-9403-412A-99D8-C9F7311318EB}
+		{CD32CA72-86EB-46EA-B6E0-5F11B616DE7E} = {933BC1EC-9403-412A-99D8-C9F7311318EB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93FCC4A8-4891-4227-B2ED-5CB91AF908D1}
