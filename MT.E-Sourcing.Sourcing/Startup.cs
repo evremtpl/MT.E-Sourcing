@@ -30,6 +30,7 @@ namespace MT.E_Sourcing.Sourcing.API
             sp.GetRequiredService<IOptions<SourcingDatabaseSettings>>().Value);
 
             services.AddTransient<ISourcingContext, SourcingContext>(); // her istekte yeni bir object olurturmak için bu lifecycle.
+            services.AddTransient<IAuctionRepository, AuctionRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
