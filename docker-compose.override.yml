@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+
+  sourcingdb:
+    container_name: sourcingdb
+    restart: always
+    volumes:
+      - ${WEBAPP_STORAGE_HOME}/site:/data/db
+      #- ./data:/data/db
+
+    ports:
+      - "27017:27017"
+
+
+
+  mt.e-sourcing.products:
+    container_name: emerveproduct
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ProductDatabaseSettings:ConnectionString=mongodb://sourcingdb:27017"
+    depends_on:
+       - sourcingdb
+    volumes:
+       - ${HOME}/.microsoft/usersecrets/:/root/.microsoft/usersecrets
+       - ${HOME}/ASP.NET/Https:/root/.aspnet/https/
+       
+    ports:
+      - "8001:80"
+
+   
