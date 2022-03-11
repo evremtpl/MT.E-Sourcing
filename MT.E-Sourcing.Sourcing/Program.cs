@@ -1,13 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace MT.E_Sourcing.Sourcing
+using Microsoft.Extensions.Hosting;
+
+namespace MT.E_Sourcing.Sourcing.API
 {
     public class Program
     {
