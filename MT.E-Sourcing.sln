@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Sourcing.Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Sourcing.Data", "MT.E-Sourcing.Sourcing.Data\MT.E-Sourcing.Sourcing.Data.csproj", "{1DF1F543-AD68-49A5-8FEF-9BDD8B8EC178}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Sourcing.Service", "MT.E-Sourcing.Sourcing.Service\MT.E-Sourcing.Sourcing.Service.csproj", "{3F890240-E13D-4477-AC72-9EF0BC162F22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{1DF1F543-AD68-49A5-8FEF-9BDD8B8EC178}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DF1F543-AD68-49A5-8FEF-9BDD8B8EC178}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DF1F543-AD68-49A5-8FEF-9BDD8B8EC178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F890240-E13D-4477-AC72-9EF0BC162F22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F890240-E13D-4477-AC72-9EF0BC162F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F890240-E13D-4477-AC72-9EF0BC162F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F890240-E13D-4477-AC72-9EF0BC162F22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{DD7D2F45-00EE-46D7-A255-4D388CB67C48} = {933BC1EC-9403-412A-99D8-C9F7311318EB}
 		{CD32CA72-86EB-46EA-B6E0-5F11B616DE7E} = {933BC1EC-9403-412A-99D8-C9F7311318EB}
 		{1DF1F543-AD68-49A5-8FEF-9BDD8B8EC178} = {933BC1EC-9403-412A-99D8-C9F7311318EB}
+		{3F890240-E13D-4477-AC72-9EF0BC162F22} = {933BC1EC-9403-412A-99D8-C9F7311318EB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93FCC4A8-4891-4227-B2ED-5CB91AF908D1}

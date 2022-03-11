@@ -1,13 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>MT.E_Sourcing.Sourcing</RootNamespace>
+    <RootNamespace>MT.E_Sourcing.Sourcing.Service</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MT.E-Sourcing.Sourcing.Core\MT.E-Sourcing.Sourcing.Core.csproj" />
     <ProjectReference Include="..\MT.E-Sourcing.Sourcing.Data\MT.E-Sourcing.Sourcing.Data.csproj" />
-    <ProjectReference Include="..\MT.E-Sourcing.Sourcing.Service\MT.E-Sourcing.Sourcing.Service.csproj" />
   </ItemGroup>
 
 </Project>
