@@ -6,7 +6,14 @@ services:
 
 
   mt.e-sourcing.products:
-    image: ${DOCKER_REGISTRY-}emerveproduct
+    image: ${DOCKER_REGISTRY-}mtproduct
     build:
       context: .
       dockerfile: MT.E-Sourcing.Products/Dockerfile
+
+  mt.e-sourcing.sourcing.api:
+    image: ${DOCKER_REGISTRY-}mtsourcingsourcingapi
+    build:
+      context: .
+      dockerfile: MT.E-Sourcing.Sourcing/Dockerfile
+
