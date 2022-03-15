@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MT.E-Sourcing.Sourcing.Data\MT.E-Sourcing.Sourcing.Data.csproj" />
     <ProjectReference Include="..\MT.E-Sourcing.Sourcing.Service\MT.E-Sourcing.Sourcing.Service.csproj" />
   </ItemGroup>

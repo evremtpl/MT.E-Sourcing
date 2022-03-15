@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MT.E_Sourcing.Sourcing.API.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/[controller]/[action]")]
     [ApiController]
     public class BidController : ControllerBase
     {
@@ -31,22 +31,22 @@ namespace MT.E_Sourcing.Sourcing.API.Controllers
             return Ok();
         }
 
-        [HttpGet(Name = "GetBidByAuctionId")]
-        [ProducesResponseType(typeof(IEnumerable<Bid>),(int)HttpStatusCode.OK)]
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<Bid>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Bid>>> GetBidByAuctionId(string id)
         {
             var bids = await _bidService.GetBidByAuctionId(id);
 
-            if(!bids.Any())
+            if (!bids.Any())
             {
                 _logger.LogError($" Bids with auctionId {id}, has not beem in database");
                 return BadRequest($" Bids with auctionId {id}, has not been in database");
             }
             return (bids);
         }
-        [HttpGet(Name ="GetWinnerBid")]
+        [HttpGet]
         [ProducesResponseType(typeof(Bid), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<Bid>> GetWinnerBid (string id)
+        public async Task<ActionResult<Bid>> GetWinnerBid(string id)
         {
             var bid = await _bidService.GetWinnerBid(id);
 

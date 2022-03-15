@@ -66,7 +66,7 @@ namespace MT.E_Sourcing.Products
             {
                 app.UseDeveloperExceptionPage();
                app.UseSwagger();
-               app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MerveTOPAL.E_Sourcing.Products v1"));
+               app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "M.T."));
             }
 
             app.UseRouting();

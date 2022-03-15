@@ -22,14 +22,14 @@ namespace MT.E_Sourcing.Sourcing.API.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<Auction>),(int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<Auction>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Auction>>> GetAuctions()
         {
             return Ok(await _auctionService.GetAuctions());
         }
 
-        [HttpGet("{id:length(24)}", Name ="GetAuction")]
-        [ProducesResponseType(typeof(Auction),(int)HttpStatusCode.OK)]
+        [HttpGet("{id:length(24)}",Name = "GetAuction")]
+        [ProducesResponseType(typeof(Auction), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<ActionResult<Auction>> GetAuction(string id)
         {
@@ -44,28 +44,28 @@ namespace MT.E_Sourcing.Sourcing.API.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(Auction), (int)HttpStatusCode.Created)]
-        public async Task<ActionResult<Auction>> Add ([FromBody] Auction auction)
+        public async Task<ActionResult<Auction>> Add([FromBody] Auction auction)
         {
             await _auctionService.Add(auction);
-            return CreatedAtRoute("GetAuction",new { id= auction.Id}, auction);
+            return CreatedAtRoute("GetAuction", new { id = auction.Id }, auction);
         }
 
         [HttpPut]
         [ProducesResponseType(typeof(Auction), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<Auction>> Update ([FromBody] Auction auction)
+        public async Task<ActionResult<Auction>> Update([FromBody] Auction auction)
         {
             await _auctionService.Update(auction);
             return CreatedAtRoute("GetAuction", new { id = auction.Id }, auction);
         }
-        [HttpDelete("id:length(24)")]
+        [HttpDelete("{id:length(24)}")]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        public async Task<ActionResult> Delete (string id)
+        public async Task<ActionResult> Delete(string id)
         {
             var auction = _auctionService.GetAuction(id).Result;
 
             if (auction != null)
             {
-               await _auctionService.Delete(id);
+                await _auctionService.Delete(id);
                 return NoContent();
             }
             return BadRequest($" Auction with id {id}, has not been in database");
