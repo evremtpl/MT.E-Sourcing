@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MT.E-Sourcing.Common\MT.E-Sourcing.Common.csproj" />
     <ProjectReference Include="..\MT.E-Sourcing.Sourcing.Data\MT.E-Sourcing.Sourcing.Data.csproj" />
     <ProjectReference Include="..\MT.E-Sourcing.Sourcing.Service\MT.E-Sourcing.Sourcing.Service.csproj" />
   </ItemGroup>

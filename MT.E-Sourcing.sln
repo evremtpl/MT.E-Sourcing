@@ -19,13 +19,17 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sourcing", "Sourcing", "{933BC1EC-9403-412A-99D8-C9F7311318EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Sourcing.API", "MT.E-Sourcing.Sourcing\MT.E-Sourcing.Sourcing.API.csproj", "{DD7D2F45-00EE-46D7-A255-4D388CB67C48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Sourcing.API", "MT.E-Sourcing.Sourcing\MT.E-Sourcing.Sourcing.API.csproj", "{DD7D2F45-00EE-46D7-A255-4D388CB67C48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Sourcing.Core", "MT.E-Sourcing.Sourcing.Core\MT.E-Sourcing.Sourcing.Core.csproj", "{CD32CA72-86EB-46EA-B6E0-5F11B616DE7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Sourcing.Core", "MT.E-Sourcing.Sourcing.Core\MT.E-Sourcing.Sourcing.Core.csproj", "{CD32CA72-86EB-46EA-B6E0-5F11B616DE7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Sourcing.Data", "MT.E-Sourcing.Sourcing.Data\MT.E-Sourcing.Sourcing.Data.csproj", "{1DF1F543-AD68-49A5-8FEF-9BDD8B8EC178}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Sourcing.Data", "MT.E-Sourcing.Sourcing.Data\MT.E-Sourcing.Sourcing.Data.csproj", "{1DF1F543-AD68-49A5-8FEF-9BDD8B8EC178}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Sourcing.Service", "MT.E-Sourcing.Sourcing.Service\MT.E-Sourcing.Sourcing.Service.csproj", "{3F890240-E13D-4477-AC72-9EF0BC162F22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Sourcing.Service", "MT.E-Sourcing.Sourcing.Service\MT.E-Sourcing.Sourcing.Service.csproj", "{3F890240-E13D-4477-AC72-9EF0BC162F22}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{C8EC3418-6DFD-483B-9D61-51C608CD337B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Common", "MT.E-Sourcing.Common\MT.E-Sourcing.Common.csproj", "{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +69,10 @@ Global
 		{3F890240-E13D-4477-AC72-9EF0BC162F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F890240-E13D-4477-AC72-9EF0BC162F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F890240-E13D-4477-AC72-9EF0BC162F22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +88,8 @@ Global
 		{CD32CA72-86EB-46EA-B6E0-5F11B616DE7E} = {933BC1EC-9403-412A-99D8-C9F7311318EB}
 		{1DF1F543-AD68-49A5-8FEF-9BDD8B8EC178} = {933BC1EC-9403-412A-99D8-C9F7311318EB}
 		{3F890240-E13D-4477-AC72-9EF0BC162F22} = {933BC1EC-9403-412A-99D8-C9F7311318EB}
+		{C8EC3418-6DFD-483B-9D61-51C608CD337B} = {7502E82A-D5BC-418B-A280-47ADAE02A872}
+		{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB} = {C8EC3418-6DFD-483B-9D61-51C608CD337B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93FCC4A8-4891-4227-B2ED-5CB91AF908D1}
