@@ -45,6 +45,8 @@ namespace MT.E_Sourcing.Sourcing.API
             services.AddTransient<IBidRepository, BidRepository>();
             services.AddTransient<IAuctionService, AuctionService>();
             services.AddTransient<IBidService, BidService>();
+
+            services.AddAutoMapper(typeof(Startup));
             #endregion
             #region Swagger Dependencies
             services.AddControllers();
