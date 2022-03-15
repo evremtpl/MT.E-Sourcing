@@ -121,5 +121,28 @@ namespace MT.E_Sourcing.Sourcing.API.Controllers
             }
             return Accepted();
         }
+   
+    [HttpPost(Name ="TestEvent")]
+    public  ActionResult<OrderCreateEvent> TestEvent()
+        {
+            OrderCreateEvent eventMessage = new OrderCreateEvent();
+            eventMessage.AuctionId = "dummy";
+            eventMessage.ProductId = "dummy_product";
+            eventMessage.Price = 10;
+            eventMessage.Quantity = 10;
+            eventMessage.SellerUserName="test@test.com";
+
+            try
+            {
+                _eventBus.Publish(EventBusConstants.OrderCreateQueue, eventMessage);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, " Error Publishing Integration event : {EventId} from {AppName}", eventMessage.Id, "Sourcing");
+                throw;
+            }
+
+            return Accepted(eventMessage);
+        }
     }
 }
