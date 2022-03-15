@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MT.E_Sourcing.Common.Events.Concrete;
+using MT.E_Sourcing.Common.RabbitMq.Core;
+using MT.E_Sourcing.Common.RabbitMq.Producer;
 using MT.E_Sourcing.Sourcing.Core.Entities;
 using MT.E_Sourcing.Sourcing.Service.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -13,11 +18,17 @@ namespace MT.E_Sourcing.Sourcing.API.Controllers
     public class AuctionController : ControllerBase
     {
         private readonly IAuctionService _auctionService;
+        private readonly IBidService _bidService;
+        private readonly IMapper _mapper;
+        private readonly EventBusRabbitMqProducer _eventBus;
         private readonly ILogger<AuctionController> _logger;
 
-        public AuctionController(IAuctionService auctionService, ILogger<AuctionController> logger)
+        public AuctionController(IAuctionService auctionService, IBidService bidService, IMapper mapper, EventBusRabbitMqProducer eventBus,ILogger<AuctionController> logger)
         {
             _auctionService = auctionService;
+            _bidService = bidService;
+            _mapper = mapper;
+            _eventBus = eventBus;
             _logger = logger;
         }
 
@@ -69,6 +80,69 @@ namespace MT.E_Sourcing.Sourcing.API.Controllers
                 return NoContent();
             }
             return BadRequest($" Auction with id {id}, has not been in database");
+        }
+        [HttpPost(Name ="CompleteAuction")]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<ActionResult> CompleteAuction(string id)
+        {
+            Auction auction = await _auctionService.GetAuction(id);
+            if(auction==null)
+                return NotFound();
+            if(auction.Status!=(int)Status.Active)
+            {
+                _logger.LogError("Auction is not active");
+                return BadRequest();
+            }
+
+            Bid bid = await _bidService.GetWinnerBid(id);
+            if (bid == null)
+                return NotFound();
+
+            OrderCreateEvent eventMessage = _mapper.Map<OrderCreateEvent>(bid);
+            eventMessage.Quantity = auction.Quantity;
+
+            auction.Status = (int)Status.Closed;
+            bool updataResponse = await _auctionService.Update(auction);
+            if(!updataResponse)
+            {
+                _logger.LogError("Auction could not updated");
+                return BadRequest();
+            }
+
+            try
+            {
+                _eventBus.Publish(EventBusConstants.OrderCreateQueue, eventMessage);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, " Error Publishing Integration event : {EventId} from {AppName}", eventMessage.Id, "Sourcing");
+                throw;
+            }
+            return Accepted();
+        }
+   
+    [HttpPost(Name ="TestEvent")]
+    public  ActionResult<OrderCreateEvent> TestEvent()
+        {
+            OrderCreateEvent eventMessage = new OrderCreateEvent();
+            eventMessage.AuctionId = "dummy";
+            eventMessage.ProductId = "dummy_product";
+            eventMessage.Price = 10;
+            eventMessage.Quantity = 10;
+            eventMessage.SellerUserName="test@test.com";
+
+            try
+            {
+                _eventBus.Publish(EventBusConstants.OrderCreateQueue, eventMessage);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, " Error Publishing Integration event : {EventId} from {AppName}", eventMessage.Id, "Sourcing");
+                throw;
+            }
+
+            return Accepted(eventMessage);
         }
     }
 }
