@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Sourcing.Serv
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{C8EC3418-6DFD-483B-9D61-51C608CD337B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Common", "MT.E-Sourcing.Common\MT.E-Sourcing.Common.csproj", "{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Common", "MT.E-Sourcing.Common\MT.E-Sourcing.Common.csproj", "{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Order", "MT.E-Sourcing.Order\MT.E-Sourcing.Order.csproj", "{E330853B-1E69-483E-A5E0-9E4694128CAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,10 @@ Global
 		{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E330853B-1E69-483E-A5E0-9E4694128CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E330853B-1E69-483E-A5E0-9E4694128CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E330853B-1E69-483E-A5E0-9E4694128CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E330853B-1E69-483E-A5E0-9E4694128CAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{3F890240-E13D-4477-AC72-9EF0BC162F22} = {933BC1EC-9403-412A-99D8-C9F7311318EB}
 		{C8EC3418-6DFD-483B-9D61-51C608CD337B} = {7502E82A-D5BC-418B-A280-47ADAE02A872}
 		{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB} = {C8EC3418-6DFD-483B-9D61-51C608CD337B}
+		{E330853B-1E69-483E-A5E0-9E4694128CAA} = {3830E5A4-E8B8-4DBF-9709-2A44AB82ADAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93FCC4A8-4891-4227-B2ED-5CB91AF908D1}
