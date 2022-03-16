@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MT.E-Sourcing.Order.Application\MT.E-Sourcing.Order.Application.csproj" />
     <ProjectReference Include="..\MT.E-Sourcing.Order.Infrastructure\MT.E-Sourcing.Order.Infrastructure.csproj" />
   </ItemGroup>
 
