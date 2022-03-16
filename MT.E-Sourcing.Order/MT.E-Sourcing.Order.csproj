@@ -5,4 +5,8 @@
     <RootNamespace>MT.E_Sourcing.Order</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MT.E-Sourcing.Order.Infrastructure\MT.E-Sourcing.Order.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
