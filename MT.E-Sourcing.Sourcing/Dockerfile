@@ -9,6 +9,7 @@ WORKDIR /src
 COPY ["MT.E-Sourcing.Sourcing/MT.E-Sourcing.Sourcing.API.csproj", "MT.E-Sourcing.Sourcing/"]
 COPY ["MT.E-Sourcing.Sourcing.Data/MT.E-Sourcing.Sourcing.Data.csproj", "MT.E-Sourcing.Sourcing.Data/"]
 COPY ["MT.E-Sourcing.Sourcing.Core/MT.E-Sourcing.Sourcing.Core.csproj", "MT.E-Sourcing.Sourcing.Core/"]
+COPY ["MT.E-Sourcing.Common/MT.E-Sourcing.Common.csproj", "MT.E-Sourcing.Common/"]
 COPY ["MT.E-Sourcing.Sourcing.Service/MT.E-Sourcing.Sourcing.Service.csproj", "MT.E-Sourcing.Sourcing.Service/"]
 RUN dotnet restore "MT.E-Sourcing.Sourcing/MT.E-Sourcing.Sourcing.API.csproj"
 COPY . .
