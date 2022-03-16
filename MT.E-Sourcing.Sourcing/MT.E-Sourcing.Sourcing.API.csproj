@@ -5,6 +5,7 @@
     <RootNamespace>MT.E_Sourcing.Sourcing</RootNamespace>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>0b118bf2-e295-4b21-80f3-eb16fafa6f9f</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

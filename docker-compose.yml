@@ -4,6 +4,8 @@ services:
   sourcingdb:
      image: mongo
 
+  rabbitmq:
+     image: rabbitmq:3-management
 
   mt.e-sourcing.products:
     image: ${DOCKER_REGISTRY-}mtproduct
