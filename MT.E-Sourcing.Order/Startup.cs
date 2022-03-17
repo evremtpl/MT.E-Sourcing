@@ -27,6 +27,14 @@ namespace MT.E_Sourcing.Order
             services.AddControllers();
             services.AddInfrastructure();
             services.AddApplication();
+
+            #region Swagger Dependencies
+
+            services.AddSwaggerGen(c=> {
+
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Order API", Version = "v1" });
+            });
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +52,12 @@ namespace MT.E_Sourcing.Order
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Order API v1");
+            
             });
         }
     }
