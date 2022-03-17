@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="PipelineBehaviors\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MT.E-Sourcing.Order.Domain\MT.E-Sourcing.Order.Domain.csproj" />
   </ItemGroup>
 
