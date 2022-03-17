@@ -10,6 +10,12 @@ namespace MT.E_Sourcing.Order.Application.PipelineBehaviors
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
+
+        public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators)
+        {
+            _validators = validators;
+        }
+
         public Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
             var context = new ValidationContext<TRequest>(request);
