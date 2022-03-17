@@ -56,7 +56,7 @@ namespace MT.E_Sourcing.Order
 
             app.UseSwagger();
             app.UseSwaggerUI(c => {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Order API v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MT. Order API v1");
             
             });
         }

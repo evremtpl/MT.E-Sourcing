@@ -40,7 +40,7 @@ namespace MT.E_Sourcing.Order.Controllers
         }
 
 
-
+        [HttpPost]
         public async Task<ActionResult<OrderResponse>> OrderCreate([FromBody] OrderCreateCommand command)
         {
             var result = await _mediator.Send(command);
