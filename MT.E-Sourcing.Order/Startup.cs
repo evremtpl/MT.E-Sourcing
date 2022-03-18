@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,7 +28,7 @@ namespace MT.E_Sourcing.Order
         {
 
             services.AddControllers();
-            services.AddInfrastructure();
+            services.AddInfrastructure(Configuration);
             services.AddApplication();
 
 
@@ -66,10 +65,6 @@ namespace MT.E_Sourcing.Order
 
             services.AddSingleton<EventBusOrderCreateConsumer>();
             #endregion
-
-
-
-
 
 
 
