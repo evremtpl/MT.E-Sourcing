@@ -5,6 +5,7 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using MT.E_Sourcing.Order.Application.Mapper;
+using MT.E_Sourcing.Order.Application.PipelineBehaviors;
 using System.Reflection;
 
 namespace MT.E_Sourcing.Order.Application
@@ -18,6 +19,10 @@ namespace MT.E_Sourcing.Order.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
 
             #region Mapper Configuration
 
