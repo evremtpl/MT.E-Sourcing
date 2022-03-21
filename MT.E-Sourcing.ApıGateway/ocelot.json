@@ -1,0 +1,31 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/v1/Product",
+      "DownstreamScheme": "http",
+      "DownstreanHostAndPorts": [
+        {
+          "Host": "mtproduct",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Product",
+      "UpstreamHttpMethod" : ["GET","POST","PUT"]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Product/{id}",
+      "DownstreamScheme": "http",
+      "DownstreanHostAndPorts": [
+        {
+          "Host": "mtproduct",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Product/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE"]
+
+    }
+
+  ]
+}
