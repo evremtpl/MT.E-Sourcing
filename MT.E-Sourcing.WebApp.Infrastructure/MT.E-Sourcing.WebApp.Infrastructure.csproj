@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>MT.E_Sourcing.WebApp.Infrastructure</RootNamespace>
+  </PropertyGroup>
+
+</Project>
