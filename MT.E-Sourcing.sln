@@ -31,13 +31,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{C8EC34
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Common", "MT.E-Sourcing.Common\MT.E-Sourcing.Common.csproj", "{3A8EFA32-9D17-47F9-9117-5A35FE27B0DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Order", "MT.E-Sourcing.Order\MT.E-Sourcing.Order.csproj", "{E330853B-1E69-483E-A5E0-9E4694128CAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Order", "MT.E-Sourcing.Order\MT.E-Sourcing.Order.csproj", "{E330853B-1E69-483E-A5E0-9E4694128CAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Order.Domain", "MT.E-Sourcing.Order.Domain\MT.E-Sourcing.Order.Domain.csproj", "{778767B0-48B0-460E-9202-5913B225CB54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Order.Domain", "MT.E-Sourcing.Order.Domain\MT.E-Sourcing.Order.Domain.csproj", "{778767B0-48B0-460E-9202-5913B225CB54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Order.Application", "MT.E-Sourcing.Order.Application\MT.E-Sourcing.Order.Application.csproj", "{5E88C4C1-9E9C-43F2-8288-87B1B9C3D375}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Order.Application", "MT.E-Sourcing.Order.Application\MT.E-Sourcing.Order.Application.csproj", "{5E88C4C1-9E9C-43F2-8288-87B1B9C3D375}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.Order.Infrastructure", "MT.E-Sourcing.Order.Infrastructure\MT.E-Sourcing.Order.Infrastructure.csproj", "{3DC2C4B5-2498-416D-A12C-35FBDCAA2779}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MT.E-Sourcing.Order.Infrastructure", "MT.E-Sourcing.Order.Infrastructure\MT.E-Sourcing.Order.Infrastructure.csproj", "{3DC2C4B5-2498-416D-A12C-35FBDCAA2779}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{1137AA5E-9D90-411F-AAB5-BA772F3EDE11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MT.E-Sourcing.ApıGateway", "MT.E-Sourcing.ApıGateway\MT.E-Sourcing.ApıGateway.csproj", "{88FC0581-73FE-442B-B934-C2E656BC8D03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +101,10 @@ Global
 		{3DC2C4B5-2498-416D-A12C-35FBDCAA2779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DC2C4B5-2498-416D-A12C-35FBDCAA2779}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DC2C4B5-2498-416D-A12C-35FBDCAA2779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88FC0581-73FE-442B-B934-C2E656BC8D03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88FC0581-73FE-442B-B934-C2E656BC8D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88FC0581-73FE-442B-B934-C2E656BC8D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88FC0581-73FE-442B-B934-C2E656BC8D03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +126,7 @@ Global
 		{778767B0-48B0-460E-9202-5913B225CB54} = {3830E5A4-E8B8-4DBF-9709-2A44AB82ADAD}
 		{5E88C4C1-9E9C-43F2-8288-87B1B9C3D375} = {3830E5A4-E8B8-4DBF-9709-2A44AB82ADAD}
 		{3DC2C4B5-2498-416D-A12C-35FBDCAA2779} = {3830E5A4-E8B8-4DBF-9709-2A44AB82ADAD}
+		{88FC0581-73FE-442B-B934-C2E656BC8D03} = {1137AA5E-9D90-411F-AAB5-BA772F3EDE11}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93FCC4A8-4891-4227-B2ED-5CB91AF908D1}
