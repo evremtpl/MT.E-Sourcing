@@ -23,6 +23,8 @@ namespace MT.E_Sourcing.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddMvc();
             services.AddRazorPages();
         }
 
@@ -49,8 +51,14 @@ namespace MT.E_Sourcing.UI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
-            });
+                
+                    endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                    endpoints.MapRazorPages();
+                
+                
+                });
+           
         }
     }
 }
