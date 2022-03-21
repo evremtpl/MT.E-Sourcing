@@ -57,3 +57,19 @@ services:
     ports:
       - "8002:80"
 
+      
+  mt.e-sourcing.order:
+    container_name: mtsourcingorder
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:OrderConnection=Server=sourcingsqldb;Database=OrderDb;User Id=sa;Password=Odb12345678"
+      - "EventBus:HostName=rabbitmq"
+    depends_on:
+      - sourcingsqldb
+      - rabbitmq
+    volumes:
+      - ${HOME}/.microsoft/usersecrets/:/root/.microsoft/usersecrets
+      - ${HOME}/ASP.NET/Https:/root/.aspnet/https/
+    ports:
+      - "8003:80"
+

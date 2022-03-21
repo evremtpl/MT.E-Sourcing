@@ -23,3 +23,10 @@ services:
       context: .
       dockerfile: MT.E-Sourcing.Sourcing/Dockerfile
 
+
+  mt.e-sourcing.order:
+    image: ${DOCKER_REGISTRY-}mtesourcingorder
+    build:
+      context: .
+      dockerfile: MT.E-Sourcing.Order/Dockerfile
+

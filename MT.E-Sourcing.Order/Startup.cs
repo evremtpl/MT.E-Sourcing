@@ -31,7 +31,7 @@ namespace MT.E_Sourcing.Order
             services.AddInfrastructure(Configuration);
             services.AddApplication();
 
-
+            services.AddAutoMapper(typeof(Startup));
 
             #region EventBus
             services.AddSingleton<IRabbitMqPersistentConnection>(sp =>
