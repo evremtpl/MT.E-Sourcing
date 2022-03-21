@@ -10,7 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Product",
-      "UpstreamHttpMethod" : ["GET","POST","PUT"]
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
 
     },
     {
@@ -23,9 +23,115 @@
         }
       ],
       "UpstreamPathTemplate": "/Product/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE"]
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+
+    },
+    //SourcingAPI -Auction
+    {
+      "DownstreamPathTemplate": "/api/v1/Auction",
+      "DownstreamScheme": "http",
+      "DownstreanHostAndPorts": [
+        {
+          "Host": "mtsourcingsourcingapi",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Auction",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Auction/{id}",
+      "DownstreamScheme": "http",
+      "DownstreanHostAndPorts": [
+        {
+          "Host": "mtsourcingsourcingapi",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Auction/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Auction/CompleteAuction/{id}",
+      "DownstreamScheme": "http",
+      "DownstreanHostAndPorts": [
+        {
+          "Host": "mtsourcingsourcingapi",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Auction/CompleteAuction/{id}",
+      "UpstreamHttpMethod": [ "POST" ]
+
+    },
+    //SourcingAPI -Bid
+    {
+      "DownstreamPathTemplate": "/api/v1/Bid",
+      "DownstreamScheme": "http",
+      "DownstreanHostAndPorts": [
+        {
+          "Host": "mtsourcingsourcingapi",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Bid",
+      "UpstreamHttpMethod": [ "POST" ]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Bid/GetBidsByAuctionId/{id}",
+      "DownstreamScheme": "http",
+      "DownstreanHostAndPorts": [
+        {
+          "Host": "mtsourcingsourcingapi",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Bid/GetBidsByAuctionId/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Bid/GetWinnerBid/{id}",
+      "DownstreamScheme": "http",
+      "DownstreanHostAndPorts": [
+        {
+          "Host": "mtsourcingsourcingapi",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Bid/GetWinnerBid/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+
+    },
+    //Order API
+    {
+      "DownstreamPathTemplate": "/api/v1/Order/GetOrdersByUserName/{userName}",
+      "DownstreamScheme": "http",
+      "DownstreanHostAndPorts": [
+        {
+          "Host": "mtsourcingsourcingapi",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Order/GetOrdersByUserName/{userName}",
+      "UpstreamHttpMethod": [ "GET" ]
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Order",
+      "DownstreamScheme": "http",
+      "DownstreanHostAndPorts": [
+        {
+          "Host": "mtsourcingsourcingapi",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Order",
+      "UpstreamHttpMethod": [ "POST" ]
 
     }
-
   ]
 }

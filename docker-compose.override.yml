@@ -73,3 +73,17 @@ services:
     ports:
       - "8003:80"
 
+
+  mt.e-sourcing.apgateway:
+    container_name: mtesourcingapgateway
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - mt.e-sourcing.products
+      - mt.e-sourcing.sourcing.api
+      - mt.e-sourcing.order
+    ports:
+      - "5000:80"
+    volumes:
+      - ${HOME}/.microsoft/usersecrets/:/root/.microsoft/usersecrets
+      - ${HOME}/ASP.NET/Https:/root/.aspnet/https/
