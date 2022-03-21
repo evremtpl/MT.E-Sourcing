@@ -6,6 +6,10 @@ services:
 
   rabbitmq:
      image: rabbitmq:3-management
+  
+  sourcingsqldb:
+     image: mcr.microsoft.com/mssql/server
+
 
   mt.e-sourcing.products:
     image: ${DOCKER_REGISTRY-}mtproduct
@@ -18,4 +22,11 @@ services:
     build:
       context: .
       dockerfile: MT.E-Sourcing.Sourcing/Dockerfile
+
+
+  mt.e-sourcing.order:
+    image: ${DOCKER_REGISTRY-}mtesourcingorder
+    build:
+      context: .
+      dockerfile: MT.E-Sourcing.Order/Dockerfile
 

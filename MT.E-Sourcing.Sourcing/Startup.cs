@@ -82,16 +82,16 @@ namespace MT.E_Sourcing.Sourcing.API
                     factory.Password = Configuration["EventBus:Password"];
 
                 }
-                var retryCount = 5;
-                if (!string.IsNullOrWhiteSpace(Configuration["EventBus:RetryCount"]))
-                {
-                    retryCount =int.Parse( Configuration["EventBus:RetryCount"]);
+                //var retryCount = 5;
+                //if (!string.IsNullOrWhiteSpace(Configuration["EventBus:RetryCount"]))
+                //{
+                //    retryCount =int.Parse( Configuration["EventBus:RetryCount"]);
 
-                }
-                return new RabbitMqPersistentConnection(factory, retryCount, logger);
+                //}
+                return new RabbitMqPersistentConnection(factory, 5, logger);
             });
 
-           //services.AddSingleton<EventBusRabbitMqProducer>();
+          services.AddSingleton<EventBusRabbitMqProducer>();
             #endregion
         }
 
