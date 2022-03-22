@@ -5,4 +5,12 @@
     <RootNamespace>MT.E_Sourcing.WebApp.Infrastructure</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MT.E-Sourcing.WebApp.Core\MT.E-Sourcing.WebApp.Core.csproj" />
+  </ItemGroup>
+
 </Project>
