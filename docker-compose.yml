@@ -30,3 +30,10 @@ services:
       context: .
       dockerfile: MT.E-Sourcing.Order/Dockerfile
 
+
+  mt.e-sourcing.apgateway:
+    image: ${DOCKER_REGISTRY-}mtesourcingapgateway
+    build:
+      context: .
+      dockerfile: MT.E-Sourcing.ApıGateway/Dockerfile
+

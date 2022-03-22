@@ -23,7 +23,7 @@ namespace MT.E_Sourcing.ApıGateway
                     webBuilder.UseStartup<Startup>();
                 }).ConfigureAppConfiguration((context,config) => {
 
-                    config.AddJsonFile("ocalot.json");
+                    config.AddJsonFile("ocelot.json");
                 
                 });
     }
