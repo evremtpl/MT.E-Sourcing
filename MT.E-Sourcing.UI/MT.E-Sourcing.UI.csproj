@@ -21,8 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModel\" />
     <Folder Include="Views\Shared\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MT.E-Sourcing.WebApp.Infrastructure\MT.E-Sourcing.WebApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
