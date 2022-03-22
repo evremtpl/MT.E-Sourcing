@@ -25,14 +25,12 @@
 
         <!-- Sidebar -->
         <div class=" border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">Member Layout</div>
+            <div class="sidebar-heading">E-Sourcing</div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action active ">Users</a>
-                <a href="#" class="list-group-item list-group-item-action ">Shortcuts</a>
-                <a href="#" class="list-group-item list-group-item-action ">Overview</a>
-                <a href="#" class="list-group-item list-group-item-action ">Events</a>
-                <a href="#" class="list-group-item list-group-item-action ">Profile</a>
-                <a href="#" class="list-group-item list-group-item-action ">Status</a>
+                <a asp-action="SignUp" class="list-group-item list-group-item-action active ">Sign Up</a>
+                <a asp-action="Login" class="list-group-item list-group-item-action ">Login</a>
+                <a asp-action="LogOut" class="list-group-item list-group-item-action ">LogOut</a>
+
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -80,11 +78,14 @@
     <!-- /#wrapper -->
     <!-- Bootstrap core JavaScript -->
     <script src="~/lib/Jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
     <!-- Menu Toggle Script -->
-    <script>$("#menu-toggle").click(function (e) {
+    <script>
+        $("#menu-toggle").click(function (e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });</script>

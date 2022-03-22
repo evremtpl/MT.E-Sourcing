@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,12 +34,40 @@ namespace MT.E_Sourcing.UI
                 opt.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"));
             });
 
-            services.AddIdentity<AppUser, IdentityRole>().AddDefaultTokenProviders()
+            services.AddIdentity<AppUser, IdentityRole>(opt=> {
+                opt.Password.RequiredLength = 4;
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.Password.RequireLowercase = false;
+                opt.Password.RequireUppercase = false;
+                opt.Password.RequireDigit = false;
+            
+            
+            }).AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<WebAppContext>();
 
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddMvc();
             services.AddRazorPages();
+
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt=> {
+            //    opt.Cookie.Name = "MyCookie";
+            //    opt.LoginPath = "Home/Login";
+            //    opt.LogoutPath = "Home/LogOut";
+            //    opt.ExpireTimeSpan = TimeSpan.FromDays(3);
+            //    opt.SlidingExpiration = false;
+
+
+            //});
+
+            services.ConfigureApplicationCookie(opt=>
+            {
+                opt.LoginPath = "/Home/Login";
+                opt.LogoutPath = "/returnUrlgün Home/LogOut";
+                opt.ExpireTimeSpan = TimeSpan.FromDays(3);
+                opt.SlidingExpiration = false;
+
+            });
+               
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
