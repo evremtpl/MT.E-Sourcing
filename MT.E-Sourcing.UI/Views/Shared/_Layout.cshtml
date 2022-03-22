@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -25,7 +29,16 @@
 
         <!-- Sidebar -->
         <div class=" border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">E-Sourcing</div>
+            <div class="sidebar-heading">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a  class="d-block"> Hi @UserManager.GetUserName(User)</a>
+                }
+                else
+                {
+                    <a  class="d-block"> User Not Login</a>
+                }
+            </div>
             <div class="list-group list-group-flush">
                 <a asp-action="SignUp" class="list-group-item list-group-item-action active ">Sign Up</a>
                 <a asp-action="Login" class="list-group-item list-group-item-action ">Login</a>
