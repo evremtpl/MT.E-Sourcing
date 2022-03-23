@@ -17,15 +17,15 @@ namespace MT.E_Sourcing.Sourcing.API.Controllers
         private readonly IAuctionService _auctionService;
         private readonly IBidService _bidService;
         private readonly IMapper _mapper;
-      private readonly EventBusRabbitMqProducer _eventBus;
+     // private readonly EventBusRabbitMqProducer _eventBus;
         private readonly ILogger<AuctionController> _logger;
 
-        public AuctionController(IAuctionService auctionService, IBidService bidService, EventBusRabbitMqProducer eventBus,IMapper mapper,ILogger<AuctionController> logger)
+        public AuctionController(IAuctionService auctionService, IBidService bidService,IMapper mapper,ILogger<AuctionController> logger)
         {
             _auctionService = auctionService;
             _bidService = bidService;
             _mapper = mapper;
-             _eventBus = eventBus;
+            // _eventBus = eventBus;
             _logger = logger;
         }
 

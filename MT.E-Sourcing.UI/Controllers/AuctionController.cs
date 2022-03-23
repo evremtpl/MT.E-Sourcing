@@ -12,14 +12,21 @@ namespace MT.E_Sourcing.UI.Controllers
 
         private readonly ProductClient _productClient;
 
-        public AuctionController(IUserRepository userRepository, ProductClient productClient)
+        private readonly AuctionClient _auctionClient;
+
+        public AuctionController(IUserRepository userRepository, ProductClient productClient, AuctionClient auctionClient)
         {
             _userRepository = userRepository;
             _productClient = productClient;
+            _auctionClient = auctionClient;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var auctionList = await _auctionClient.GetAuctions();
+
+            if(auctionList.IsSuccess)
+            return View(auctionList.Data);
             return View();
         }
         [HttpGet]
@@ -40,9 +47,16 @@ namespace MT.E_Sourcing.UI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(AuctionViewModel model)
+        public async Task< IActionResult> Create(AuctionViewModel model)
         {
-            return View();
+
+            model.Status = 1;
+            model.CreateDate = System.DateTime.Now;
+            var createAuction = await _auctionClient.CreateAuction(model);
+
+            if (createAuction.IsSuccess)
+                return RedirectToAction("Index");
+            return View(model);
         }
 
         public IActionResult Detail()

@@ -12,5 +12,9 @@ namespace MT.E_Sourcing.WebApp.Core.Common
         public const string RecordFound = "Record Found";
 
         public const string RecordNotFound = "Record Not Found";
+
+        public const string RecordCreateSuccesfully = "Record Create Succesfully";
+
+        public const string RecordCreateNotSuccesfully = "Record Create Not Succesfully";
     }
 }

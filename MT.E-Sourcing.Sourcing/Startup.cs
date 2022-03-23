@@ -91,7 +91,7 @@ namespace MT.E_Sourcing.Sourcing.API
                 return new RabbitMqPersistentConnection(factory, 5, logger);
             });
 
-          services.AddSingleton<EventBusRabbitMqProducer>();
+       //   services.AddSingleton<EventBusRabbitMqProducer>();
             #endregion
         }
 
