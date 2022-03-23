@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MT.E_Sourcing.UI.Clients;
 using MT.E_Sourcing.WebApp.Core.Entities;
 using MT.E_Sourcing.WebApp.Core.Repositories.Base;
 using MT.E_Sourcing.WebApp.Infrastructure.Data;
@@ -53,15 +54,18 @@ namespace MT.E_Sourcing.UI
 
             services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
             services.AddScoped<IUserRepository, UserRepository>();
+
             services.ConfigureApplicationCookie(opt=>
             {
-                opt.LoginPath = "/Home/Login";
-                opt.LogoutPath = "/returnUrlgün Home/LogOut";
+                opt.LoginPath = $"/Home/Login";
+                opt.LogoutPath =$"/Home/LogOut";
                 opt.ExpireTimeSpan = TimeSpan.FromDays(3);
                 opt.SlidingExpiration = false;
 
             });
-               
+
+            services.AddHttpClient();
+            services.AddHttpClient<ProductClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

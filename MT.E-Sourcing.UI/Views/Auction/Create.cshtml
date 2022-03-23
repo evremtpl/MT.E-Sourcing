@@ -7,7 +7,13 @@
 <form asp-action="Create">
     <div class="card card-primary card-outline">
         <div class="card-body">
-            <h4> Auction Cteate Page</h4>
+            <div class="form-group">
+                
+                @Html.DropDownListFor(l=>l.ProductId, new SelectList(ViewBag.ProductList, "Id","Name"),"Please Select Product",
+                new { @class="custom-select form-control col-sm-6" })
+               
+
+            </div>
         </div>
 
     </div>

@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MT.E_Sourcing.UI.ViewModel;
 using MT.E_Sourcing.WebApp.Core.Repositories.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using MT.E_Sourcing.UI.Clients;
 
 namespace MT.E_Sourcing.UI.Controllers
 {
@@ -12,9 +10,12 @@ namespace MT.E_Sourcing.UI.Controllers
     {
         private readonly IUserRepository _userRepository;
 
-        public AuctionController(IUserRepository userRepository)
+        private readonly ProductClient _productClient;
+
+        public AuctionController(IUserRepository userRepository, ProductClient productClient)
         {
             _userRepository = userRepository;
+            _productClient = productClient;
         }
 
         public IActionResult Index()
@@ -24,6 +25,15 @@ namespace MT.E_Sourcing.UI.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+
+            //TODO:Product GETALL
+
+            var productList = await _productClient.GetProducts();
+
+            if(productList.IsSuccess)
+            {
+                ViewBag.ProductList = productList.Data;
+            }
             var userList = await _userRepository.GetAllAsync();
             ViewBag.UserList = userList;
             return View();
