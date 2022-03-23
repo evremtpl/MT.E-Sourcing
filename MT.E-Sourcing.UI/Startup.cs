@@ -8,7 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MT.E_Sourcing.WebApp.Core.Entities;
+using MT.E_Sourcing.WebApp.Core.Repositories.Base;
 using MT.E_Sourcing.WebApp.Infrastructure.Data;
+using MT.E_Sourcing.WebApp.Infrastructure.Repositories.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,16 +51,8 @@ namespace MT.E_Sourcing.UI
             services.AddMvc();
             services.AddRazorPages();
 
-            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt=> {
-            //    opt.Cookie.Name = "MyCookie";
-            //    opt.LoginPath = "Home/Login";
-            //    opt.LogoutPath = "Home/LogOut";
-            //    opt.ExpireTimeSpan = TimeSpan.FromDays(3);
-            //    opt.SlidingExpiration = false;
-
-
-            //});
-
+            services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+            services.AddScoped<IUserRepository, UserRepository>();
             services.ConfigureApplicationCookie(opt=>
             {
                 opt.LoginPath = "/Home/Login";
@@ -90,6 +84,7 @@ namespace MT.E_Sourcing.UI
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
