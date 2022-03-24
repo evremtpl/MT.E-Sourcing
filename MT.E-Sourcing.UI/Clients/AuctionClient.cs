@@ -18,7 +18,7 @@ namespace MT.E_Sourcing.UI.Clients
         public AuctionClient(HttpClient client)
         {
             _client = client;
-            _client.BaseAddress = new Uri(CommonInfo.LocalAuctionBaseAddress);
+            _client.BaseAddress = new Uri(CommonInfo.BaseAddress);
         }
 
         public async Task<Result<AuctionViewModel>> CreateAuction(AuctionViewModel model)
@@ -28,7 +28,7 @@ namespace MT.E_Sourcing.UI.Clients
             var content = new StringContent(dataAsString);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await _client.PostAsync("/api/v1/Auction", content);
+            var response = await _client.PostAsync("/Auction", content);
 
             if(response.IsSuccessStatusCode)
             {
@@ -46,7 +46,7 @@ namespace MT.E_Sourcing.UI.Clients
 
         public async Task<Result<List<AuctionViewModel>>> GetAuctions()
         {
-            var response = await _client.GetAsync("/api/v1/Auction");
+            var response = await _client.GetAsync("/Auction");
 
             if(response.IsSuccessStatusCode)
             {
@@ -61,6 +61,46 @@ namespace MT.E_Sourcing.UI.Clients
                     return new Result<List<AuctionViewModel>>(false, ResultConstant.RecordNotFound);
             }
             return new Result<List<AuctionViewModel>>(false, ResultConstant.RecordNotFound);
+        }
+
+
+        public async Task<Result<AuctionViewModel>> GetAuctionById(string id)
+        {
+            var response = await _client.GetAsync("/Auction/" + id);
+            if(response.IsSuccessStatusCode)
+            {
+                var responseData = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<AuctionViewModel>(responseData);
+
+                if(result!=null)
+                {
+                    return new Result<AuctionViewModel>(true, ResultConstant.RecordFound, result);
+                }
+                return new Result<AuctionViewModel>(false, ResultConstant.RecordNotFound);
+            }
+            return new Result<AuctionViewModel>(false, ResultConstant.RecordNotFound);
+        }
+
+
+        public async Task<Result<string>> CompleteBid(string id)
+        {
+            var dataAsString = JsonConvert.SerializeObject(id);
+
+            var content = new StringContent(dataAsString);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await _client.PostAsync("/Auction/CompleteAuction", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseData = await response.Content.ReadAsStringAsync();
+
+
+
+                return new Result<string>(true, ResultConstant.RecordCreateSuccesfully, responseData);
+
+            }
+            return new Result<string>(true, ResultConstant.RecordCreateNotSuccesfully);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MT.E_Sourcing.UI.ViewModel;
@@ -43,12 +44,17 @@ namespace MT.E_Sourcing.UI.Controllers
 
                     if(result.Succeeded)
                     {
+                        HttpContext.Session.SetString("IsAdmin", user.IsAdmin.ToString());
                         return LocalRedirect(returnUrl);
                     }
                     else
                     {
                         ModelState.AddModelError("", "Email  or password are not valid");
                     }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Email  or password are not valid");
                 }
             }
             

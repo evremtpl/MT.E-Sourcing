@@ -8,7 +8,7 @@ namespace MT.E_Sourcing.WebApp.Core.Common
 {
     public static class CommonInfo
     {
-        public static string LocalProductBaseAddress = "http://localhost:55992";
-        public static string LocalAuctionBaseAddress = "http://localhost:18382";
+        public static string BaseAddress = "http://localhost:5003";
+        
     }
 }

@@ -19,12 +19,12 @@ namespace MT.E_Sourcing.UI.Clients
         {
             _client = client;
 
-            _client.BaseAddress = new Uri(CommonInfo.LocalProductBaseAddress);
+            _client.BaseAddress = new Uri(CommonInfo.BaseAddress);
         }
 
         public async Task<Result<List<ProductViewModel>>> GetProducts()
         {
-            var response = await _client.GetAsync("/api/v1/Product");
+            var response = await _client.GetAsync("/Product");
 
             if (response.IsSuccessStatusCode)
             {
