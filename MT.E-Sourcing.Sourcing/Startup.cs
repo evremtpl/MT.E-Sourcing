@@ -13,6 +13,7 @@ using MT.E_Sourcing.Sourcing.Data.Concrete;
 using MT.E_Sourcing.Sourcing.Data.Interfaces;
 using MT.E_Sourcing.Sourcing.Data.Settings.Concrete;
 using MT.E_Sourcing.Sourcing.Data.Settings.Interface;
+using MT.E_Sourcing.Sourcing.Hubs;
 using MT.E_Sourcing.Sourcing.Service.Concrete;
 using MT.E_Sourcing.Sourcing.Service.Interfaces;
 using RabbitMQ.Client;
@@ -91,8 +92,17 @@ namespace MT.E_Sourcing.Sourcing.API
                 return new RabbitMqPersistentConnection(factory, 5, logger);
             });
 
-          services.AddSingleton<EventBusRabbitMqProducer>();
+            //   services.AddSingleton<EventBusRabbitMqProducer>();
             #endregion
+
+
+            services.AddCors(opt=> {
+                opt.AddPolicy("CorsPolicy",builder=> {
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().WithOrigins("http://localhost:23963");
+                });
+            
+            });
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -108,9 +118,10 @@ namespace MT.E_Sourcing.Sourcing.API
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseCors("CorsPolicy");
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<AuctionHub>("/auctionhub");
                 endpoints.MapControllers();
             });
         }

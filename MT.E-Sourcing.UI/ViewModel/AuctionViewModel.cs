@@ -9,7 +9,7 @@ namespace MT.E_Sourcing.UI.ViewModel
     public class AuctionViewModel
     {
   
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Required(ErrorMessage = "Please Fill Name")]
         public string Name  { get; set; }
         [Required(ErrorMessage = "Please Fill Description")]

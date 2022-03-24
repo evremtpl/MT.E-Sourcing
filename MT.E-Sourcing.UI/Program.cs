@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MT.E_Sourcing.WebApp.Infrastructure.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace MT.E_Sourcing.UI
 {
@@ -13,7 +12,12 @@ namespace MT.E_Sourcing.UI
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+
+            var host = CreateHostBuilder(args).Build();
+            CreateDatabaseAndSeedData(host);
+                
+                
+               host. Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,5 +26,25 @@ namespace MT.E_Sourcing.UI
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        private static void CreateDatabaseAndSeedData(IHost host)
+        {
+            using var scope = host.Services.CreateScope();
+
+            var services = scope.ServiceProvider;
+            var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+
+            try
+            {
+                var context = services.GetRequiredService<WebAppContext>();
+                WebAppContextSeed.SeedAsync(context, loggerFactory).Wait();
+            }
+            catch (Exception ex)
+            {
+                var logger = loggerFactory.CreateLogger<Program>();
+                logger.LogError(ex, "An Error occured seeding Db");
+
+               
+            }
+        }
     }
 }

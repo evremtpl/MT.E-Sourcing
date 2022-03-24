@@ -7,8 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MT.E_Sourcing.UI.Clients;
 using MT.E_Sourcing.WebApp.Core.Entities;
+using MT.E_Sourcing.WebApp.Core.Repositories.Base;
 using MT.E_Sourcing.WebApp.Infrastructure.Data;
+using MT.E_Sourcing.WebApp.Infrastructure.Repositories.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,30 +52,37 @@ namespace MT.E_Sourcing.UI
             services.AddMvc();
             services.AddRazorPages();
 
-            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt=> {
-            //    opt.Cookie.Name = "MyCookie";
-            //    opt.LoginPath = "Home/Login";
-            //    opt.LogoutPath = "Home/LogOut";
-            //    opt.ExpireTimeSpan = TimeSpan.FromDays(3);
-            //    opt.SlidingExpiration = false;
+            services.AddSession(opt=> {
+                opt.IdleTimeout = TimeSpan.FromMinutes(20);
+            });
 
 
-            //});
+
+            services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.ConfigureApplicationCookie(opt=>
             {
-                opt.LoginPath = "/Home/Login";
-                opt.LogoutPath = "/returnUrlgün Home/LogOut";
+                opt.LoginPath = $"/Home/Login";
+                opt.LogoutPath =$"/Home/LogOut";
                 opt.ExpireTimeSpan = TimeSpan.FromDays(3);
                 opt.SlidingExpiration = false;
 
             });
-               
+
+            services.AddHttpClient();
+            services.AddHttpClient<ProductClient>();
+
+            services.AddHttpClient<AuctionClient>();
+
+            services.AddHttpClient<BidClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseSession();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -90,6 +100,7 @@ namespace MT.E_Sourcing.UI
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
